@@ -1,6 +1,25 @@
-{
-  "firestore": { "rules": "firestore.rules" },
-  "database": { "rules": "database.rules.json" },
-  "storage": { "rules": "storage.rules" },
-  "functions": [{ "source": "functions", "codebase": "default" }]
-}
+
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
+import { getStorage } from "firebase/storage";
+import { getFunctions } from "firebase/functions";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBD6Z0_dRwcfosM6veaVryWkUsDOOsnDxI",
+  authDomain: "project-1270743145810945071.firebaseapp.com",
+  projectId: "project-1270743145810945071",
+  storageBucket: "project-1270743145810945071.firebasestorage.app",
+  messagingSenderId: "85325383207",
+  appId: "1:85325383207:web:34a053d5c79dd98f797002",
+  measurementId: "G-7KS2Y46BB2"
+};
+
+const app = initializeApp(firebaseConfig);
+
+export const auth = getAuth(app);
+export const db = getFirestore(app);
+export const storage = getStorage(app);
+export const functions = getFunctions(app);
+
+export default app;
